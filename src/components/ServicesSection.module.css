@@ -1,0 +1,68 @@
+.servicesSection {
+    padding: 4rem 1.5rem;
+    background: var(--color-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Masonry/Staggered Grid Layout */
+.servicesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Mobile: Stack vertically */
+@media (min-width: 768px) {
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    /* Staggered effect - alternating positions */
+    .servicesGrid> :nth-child(1) {
+        margin-top: 0;
+    }
+
+    .servicesGrid> :nth-child(2) {
+        margin-top: 4rem;
+    }
+
+    .servicesGrid> :nth-child(3) {
+        margin-top: 0;
+    }
+
+    .servicesGrid> :nth-child(4) {
+        margin-top: 4rem;
+    }
+}
+
+/* Desktop: More pronounced stagger */
+@media (min-width: 1024px) {
+    .sectionTitle {
+        font-size: 2.5rem;
+    }
+
+    .servicesGrid {
+        gap: 3rem;
+    }
+
+    .servicesGrid> :nth-child(2) {
+        margin-top: 6rem;
+    }
+
+    .servicesGrid> :nth-child(4) {
+        margin-top: 6rem;
+    }
+}

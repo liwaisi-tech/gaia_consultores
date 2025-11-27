@@ -1,10 +1,12 @@
 import React from 'react';
+import Hero from '../components/Hero';
+import ServicesSection from '../components/ServicesSection';
 
 const Home = () => {
   return (
     <div>
-      <h1>Gaia Consultores</h1>
-      <p>Transformación sostenible y regenerativa.</p>
+      <Hero />
+      <ServicesSection />
     </div>
   );
 };
