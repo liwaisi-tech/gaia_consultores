@@ -1,0 +1,201 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.headerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+/* Hamburger Menu Button */
+.menuButton {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.menuButton span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menuButton.open span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menuButton.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menuButton.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--color-surface);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    padding-top: 5rem;
+    z-index: 999;
+}
+
+.nav.open {
+    right: 0;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navItem {
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.navLink {
+    display: block;
+    padding: 1.25rem 2rem;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navLink:hover,
+.navLink.active {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    padding-left: 2.5rem;
+}
+
+.navLink.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--color-accent);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 998;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Desktop Navigation */
+@media (min-width: 768px) {
+    .header {
+        padding: 1rem 2rem;
+    }
+
+    .menuButton {
+        display: none;
+    }
+
+    .nav {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding-top: 0;
+    }
+
+    .navList {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navItem {
+        border-bottom: none;
+    }
+
+    .navLink {
+        padding: 0.5rem 0;
+        position: relative;
+    }
+
+    .navLink::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--color-accent);
+        transition: width 0.3s ease;
+    }
+
+    .navLink:hover,
+    .navLink.active {
+        background: none;
+        padding-left: 0;
+    }
+
+    .navLink:hover::after,
+    .navLink.active::after {
+        width: 100%;
+    }
+
+    .navLink.active::before {
+        display: none;
+    }
+
+    .overlay {
+        display: none;
+    }
+}
