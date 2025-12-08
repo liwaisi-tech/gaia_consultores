@@ -1,10 +1,10 @@
 import React from 'react';
 import ServiceCard from './ServiceCard';
 import styles from './ServicesSection.module.css';
-import energiaImg from '../assets/service-energia.png';
-import produccionImg from '../assets/service-produccion.png';
-import gestionImg from '../assets/service-gestion.png';
-import culturaImg from '../assets/service-cultura.png';
+import energiaImg from '../assets/service-energia-desktop.webp';
+import produccionImg from '../assets/service-produccion-desktop.webp';
+import gestionImg from '../assets/service-gestion-desktop.webp';
+import culturaImg from '../assets/service-cultura-desktop.webp';
 
 const ServicesSection = () => {
     const services = [

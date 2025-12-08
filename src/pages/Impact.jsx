@@ -2,9 +2,9 @@ import React from 'react';
 
 const Impact = () => {
     return (
-        <div style={{ padding: '6rem 2rem 2rem' }}>
+        <div style={{ padding: '2rem', minHeight: '80vh' }}>
             <h1>Impacto</h1>
-            <p>Conoce el impacto de nuestro trabajo.</p>
+            <p>Página de Impacto - En construcción</p>
         </div>
     );
 };
