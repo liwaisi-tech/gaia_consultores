@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.css';
+import useLazyBackground from '../hooks/useLazyBackground';
 
 import bannerMobile from '../assets/bannerGaia-mobile.webp';
 import bannerDesktop from '../assets/bannerGaia-desktop.webp';
@@ -8,17 +8,20 @@ import chartMobile from '../assets/sustainable_tourism_chart-mobile.webp';
 import chartDesktop from '../assets/sustainable_tourism_chart-desktop.webp';
 
 const Hero = () => {
+    const { elementRef, isLoaded } = useLazyBackground(bannerMobile, bannerDesktop);
+
     return (
         <section className={styles.hero}>
             {/* Main Content */}
             <div className={styles.heroContent}>
                 {/* Card/Box with main content */}
                 <div
+                    ref={elementRef}
                     className={styles.heroCard}
-                    style={{
+                    style={isLoaded ? {
                         '--bg-mobile': `url("${bannerMobile}")`,
                         '--bg-desktop': `url("${bannerDesktop}")`
-                    }}
+                    } : {}}
                 >
 
 
@@ -60,6 +63,7 @@ const Hero = () => {
                                         src={chartMobile}
                                         alt="87% de los viajeros argentinos busca activamente alojamientos con prácticas sustentables"
                                         className={styles.chartImage}
+                                        loading="lazy"
                                     />
                                 </picture>
                             </div>

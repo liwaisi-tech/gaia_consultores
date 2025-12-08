@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Impact = () => {
     return (
         <div style={{ padding: '2rem', minHeight: '80vh' }}>

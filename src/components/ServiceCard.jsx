@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './ServiceCard.module.css';
 
-const ServiceCard = ({ title, image, description, colorTheme }) => {
+const ServiceCard = ({ title, imageMobile, imageDesktop, description, colorTheme }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleMouseEnter = () => {
@@ -26,7 +26,10 @@ const ServiceCard = ({ title, image, description, colorTheme }) => {
             <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ''}`}>
                 {/* Front of card */}
                 <div className={styles.cardFront}>
-                    <img src={image} alt={title} className={styles.cardImage} />
+                    <picture>
+                        <source media="(min-width: 768px)" srcSet={imageDesktop} />
+                        <img src={imageMobile} alt={title} className={styles.cardImage} loading="lazy" />
+                    </picture>
                     <div className={styles.cardOverlay} />
                     <h3 className={styles.cardTitle}>{title}</h3>
                     <div className={styles.arrowIcon}>

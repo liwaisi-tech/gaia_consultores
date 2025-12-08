@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Contact = () => {
     return (
         <div style={{ padding: '6rem 2rem 2rem' }}>
