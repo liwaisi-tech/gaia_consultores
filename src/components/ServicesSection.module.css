@@ -1,6 +1,7 @@
 .servicesSection {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem;
     background: var(--color-background);
+    position: relative;
 }
 
 .container {
@@ -11,23 +12,34 @@
 .sectionTitle {
     font-size: 2rem;
     font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    text-align: left;
+    /* Left aligned like mockup */
+    letter-spacing: -0.5px;
+}
+
+.sectionSubtitle {
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--color-text);
     margin-bottom: 3rem;
-    text-align: center;
+    max-width: 600px;
 }
 
 /* Masonry/Staggered Grid Layout */
 .servicesGrid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
+    padding-bottom: 2rem;
 }
 
 /* Mobile: Stack vertically */
 @media (min-width: 768px) {
     .servicesGrid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
+        gap: 3rem;
     }
 
     /* Staggered effect - alternating positions */
@@ -36,7 +48,7 @@
     }
 
     .servicesGrid> :nth-child(2) {
-        margin-top: 4rem;
+        margin-top: 5rem;
     }
 
     .servicesGrid> :nth-child(3) {
@@ -44,25 +56,26 @@
     }
 
     .servicesGrid> :nth-child(4) {
-        margin-top: 4rem;
+        margin-top: 5rem;
     }
 }
 
 /* Desktop: More pronounced stagger */
 @media (min-width: 1024px) {
     .sectionTitle {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        margin-bottom: 5rem;
     }
 
     .servicesGrid {
-        gap: 3rem;
+        gap: 4rem;
     }
 
     .servicesGrid> :nth-child(2) {
-        margin-top: 6rem;
+        margin-top: 8rem;
     }
 
     .servicesGrid> :nth-child(4) {
-        margin-top: 6rem;
+        margin-top: 8rem;
     }
 }

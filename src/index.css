@@ -1,17 +1,27 @@
-:root {
-  /* Gaia Color Palette */
-  --color-primary: #2E5C46; /* Deep Forest Green */
-  --color-primary-light: #4A7A62;
-  --color-secondary: #D9CBB6; /* Sand/Beige */
-  --color-accent: #C48A4B; /* Muted Earthy Gold/Terracotta */
-  --color-background: #F9F8F4; /* Off-white/Cream */
-  --color-surface: #FFFFFF;
-  --color-text: #2C332E; /* Dark Green-Grey */
-  --color-text-light: #6B756D;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
-  /* Typography */
-  --font-family-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-family-serif: 'Merriweather', serif; /* For headings if needed later */
+:root {
+  /* Gaia Brand Palette */
+  --color-primary: #665a50;
+  /* Dark Earth/Brown - Main Text & Primary Actions */
+  --color-secondary: #b09882;
+  /* Earthy Beige - Secondary Backgrounds & Accents */
+  --color-tertiary: #cecac8;
+  /* Stone Gray - Borders & Subtle Backgrounds */
+
+  /* Functional Colors */
+  --color-background: #FFFFFF;
+  /* Clean White for readability */
+  --color-surface: #F8F7F6;
+  /* Very light tint of the stone color for cards/sections */
+  --color-text: #665a50;
+  /* Using Primary for main text */
+  --color-text-light: #8C847B;
+  /* Lighter version for secondary text */
+  --color-white: #FFFFFF;
+
+  /* Typography - Poppins Only */
+  --font-family-base: 'Poppins', system-ui, Helvetica, Arial, sans-serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -20,20 +30,61 @@
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
 
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  /* Border Radius - Organic/Soft feel */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* 3D & Relief Effects */
+  --shadow-3d: 0 4px 0 #8c7865;
+  /* Darker shade of secondary */
+  --shadow-relief: 0 10px 20px rgba(102, 90, 80, 0.1), 0 6px 6px rgba(102, 90, 80, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  --shadow-relief-hover: 0 15px 30px rgba(102, 90, 80, 0.15), 0 10px 10px rgba(102, 90, 80, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.5);
 }
 
-*, *::before, *::after {
+/* Utility Classes */
+.btn-3d {
+  display: inline-block;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-3d);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-3d:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.card-relief {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-relief);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.card-relief:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-relief-hover);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-base);
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.6;
@@ -49,9 +100,31 @@ a {
 button {
   cursor: pointer;
   font-family: inherit;
+  border: none;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+/* Utility Classes for Typography weights */
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-black {
+  font-weight: 900;
 }

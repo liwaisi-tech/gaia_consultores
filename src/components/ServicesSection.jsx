@@ -39,9 +39,13 @@ const ServicesSection = () => {
     ];
 
     return (
-        <section className={styles.servicesSection}>
+        <section className={styles.servicesSection} id="servicios">
             <div className={styles.container}>
-                <h2 className={styles.sectionTitle}>Nuestros Servicios</h2>
+                <h2 className={styles.sectionTitle}>¿Cómo lo hacemos?</h2>
+                <p className={styles.sectionSubtitle}>
+                    Combinamos conocimiento técnico, mirada humanista y visión sistémica para transformar negocios turísticos
+                    en negocios que mejoran su vinculación con el entorno.
+                </p>
                 <div className={styles.servicesGrid}>
                     {services.map((service) => (
                         <ServiceCard
