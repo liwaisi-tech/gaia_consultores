@@ -1,81 +1,196 @@
+/* Sección principal con fondo que evoca naturaleza/tierra */
 .servicesSection {
-    padding: 6rem 1.5rem;
-    background: var(--color-background);
+    padding: 8rem 1.5rem;
+    background: linear-gradient(135deg,
+            rgba(245, 245, 240, 0.6) 0%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(240, 248, 245, 0.6) 100%);
     position: relative;
+    overflow: hidden;
+}
+
+/* Elemento decorativo que simboliza la conexión tierra-cielo */
+.servicesSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+            #8B7355 0%,
+            /* Tierra */
+            #6B8E23 25%,
+            /* Naturaleza */
+            #4682B4 50%,
+            /* Cielo */
+            #6B8E23 75%,
+            /* Naturaleza */
+            #8B7355 100%
+            /* Tierra */
+        );
+    opacity: 0.6;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
+/* Encabezado de la sección */
 .sectionTitle {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--color-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-align: left;
-    /* Left aligned like mockup */
     letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
 }
 
+/* Línea decorativa bajo el título que representa raíces */
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            #6B8E23 0%,
+            transparent 100%);
+    border-radius: 2px;
+}
+
+/* Subtítulo con tamaño profesional y ancho completo */
 .sectionSubtitle {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin-bottom: 3rem;
-    max-width: 600px;
+    font-size: 1.125rem;
+    /* 18px ≈ 13.5pt - Tamaño profesional legible */
+    line-height: 1.8;
+    /* Mayor interlineado para mejor legibilidad */
+    color: #4a5568;
+    /* Color más suave pero legible */
+    margin-bottom: 4rem;
+    max-width: 100%;
+    /* Usa todo el ancho disponible */
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    /* Espaciado sutil para mejor lectura */
+    text-align: left;
 }
 
-/* Masonry/Staggered Grid Layout */
+/* Grid de servicios con diseño masonry mejorado */
 .servicesGrid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     padding-bottom: 2rem;
+    position: relative;
 }
 
-/* Mobile: Stack vertically */
+/* Elemento decorativo central que simboliza crecimiento */
+.servicesGrid::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    bottom: 10%;
+    width: 2px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(107, 142, 35, 0.2) 20%,
+            rgba(107, 142, 35, 0.3) 50%,
+            rgba(107, 142, 35, 0.2) 80%,
+            transparent 100%);
+    transform: translateX(-50%);
+    display: none;
+    /* Se muestra solo en tablet+ */
+}
+
+/* Tablet: 2 columnas con efecto escalonado */
 @media (min-width: 768px) {
-    .servicesGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
-    }
-
-    /* Staggered effect - alternating positions */
-    .servicesGrid> :nth-child(1) {
-        margin-top: 0;
-    }
-
-    .servicesGrid> :nth-child(2) {
-        margin-top: 5rem;
-    }
-
-    .servicesGrid> :nth-child(3) {
-        margin-top: 0;
-    }
-
-    .servicesGrid> :nth-child(4) {
-        margin-top: 5rem;
-    }
-}
-
-/* Desktop: More pronounced stagger */
-@media (min-width: 1024px) {
-    .sectionTitle {
-        font-size: 3rem;
+    .sectionSubtitle {
+        font-size: 1.25rem;
+        /* 20px en tablet para mejor impacto */
+        line-height: 1.9;
         margin-bottom: 5rem;
     }
 
     .servicesGrid {
-        gap: 4rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.5rem 3rem;
+    }
+
+    .servicesGrid::before {
+        display: block;
+    }
+
+    /* Efecto escalonado que simula crecimiento orgánico */
+    .servicesGrid> :nth-child(1) {
+        margin-top: 0;
+        animation: fadeInUp 0.6s ease-out;
     }
 
     .servicesGrid> :nth-child(2) {
-        margin-top: 8rem;
+        margin-top: 4rem;
+        animation: fadeInUp 0.6s ease-out 0.2s backwards;
+    }
+
+    .servicesGrid> :nth-child(3) {
+        margin-top: 0;
+        animation: fadeInUp 0.6s ease-out 0.4s backwards;
     }
 
     .servicesGrid> :nth-child(4) {
-        margin-top: 8rem;
+        margin-top: 4rem;
+        animation: fadeInUp 0.6s ease-out 0.6s backwards;
+    }
+}
+
+/* Desktop: Mayor énfasis y espaciado */
+@media (min-width: 1024px) {
+    .servicesSection {
+        padding: 10rem 2rem;
+    }
+
+    .sectionTitle {
+        font-size: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1.375rem;
+        /* 22px en desktop - máxima legibilidad */
+        line-height: 2;
+        margin-bottom: 6rem;
+        max-width: 90%;
+        /* Ligera restricción para líneas óptimas de lectura */
+    }
+
+    .servicesGrid {
+        gap: 5rem 4rem;
+    }
+
+    .servicesGrid> :nth-child(2) {
+        margin-top: 6rem;
+    }
+
+    .servicesGrid> :nth-child(4) {
+        margin-top: 6rem;
+    }
+}
+
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
