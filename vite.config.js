@@ -5,4 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  build: {
+    cssCodeSplit: true, // Separar CSS por chunks (ya está habilitado por defecto)
+    minify: 'esbuild', // Minificar JS con esbuild (más rápido)
+    cssMinify: true, // Minificar CSS (por defecto usa esbuild, que es eficiente)
+  },
 })

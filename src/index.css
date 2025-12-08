@@ -43,37 +43,6 @@
   --shadow-relief-hover: 0 15px 30px rgba(102, 90, 80, 0.15), 0 10px 10px rgba(102, 90, 80, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.5);
 }
 
-/* Utility Classes */
-.btn-3d {
-  display: inline-block;
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-3d);
-  transition: all 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.btn-3d:active {
-  transform: translateY(4px);
-  box-shadow: none;
-}
-
-.card-relief {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-relief);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.card-relief:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-relief-hover);
-}
 
 *,
 *::before,
@@ -106,25 +75,4 @@ button {
 img {
   max-width: 100%;
   display: block;
-}
-
-/* Utility Classes for Typography weights */
-.font-light {
-  font-weight: 300;
-}
-
-.font-regular {
-  font-weight: 400;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.font-black {
-  font-weight: 900;
 }
