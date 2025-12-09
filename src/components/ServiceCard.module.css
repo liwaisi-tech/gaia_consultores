@@ -87,28 +87,24 @@
     text-align: center;
 }
 
-/* Brand Color Themes */
-.cardBack.coral {
-    background: var(--color-secondary);
-    /* Earthy Beige */
+/* Brand Color Themes - Usando paleta de marca con gradientes sutiles */
+.cardBack.theme1 {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #c4a894 100%);
     color: var(--color-primary);
 }
 
-.cardBack.purple {
-    background: var(--color-primary);
-    /* Dark Earth */
+.cardBack.theme2 {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #75695f 100%);
     color: var(--color-white);
 }
 
-.cardBack.green {
-    background: #8c7865;
-    /* Intermediate Earth */
+.cardBack.theme3 {
+    background: linear-gradient(135deg, #8c7865 0%, #a38977 100%);
     color: var(--color-white);
 }
 
-.cardBack.blue {
-    background: var(--color-tertiary);
-    /* Stone Gray */
+.cardBack.theme4 {
+    background: linear-gradient(135deg, var(--color-tertiary) 0%, #dad6d4 100%);
     color: var(--color-primary);
 }
 
@@ -123,7 +119,7 @@
     font-size: 1rem;
     line-height: 1.6;
     color: inherit;
-    opacity: 0.95;
+    /* Removed opacity for better accessibility (WCAG AA) */
 }
 
 .arrowIcon {

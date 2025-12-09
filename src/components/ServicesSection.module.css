@@ -9,7 +9,7 @@
     overflow: hidden;
 }
 
-/* Elemento decorativo que simboliza la conexión tierra-cielo */
+/* Línea divisoria decorativa superior - Paleta de marca */
 .servicesSection::before {
     content: '';
     position: absolute;
@@ -18,18 +18,12 @@
     right: 0;
     height: 4px;
     background: linear-gradient(90deg,
-            #8B7355 0%,
-            /* Tierra */
-            #6B8E23 25%,
-            /* Naturaleza */
-            #4682B4 50%,
-            /* Cielo */
-            #6B8E23 75%,
-            /* Naturaleza */
-            #8B7355 100%
-            /* Tierra */
-        );
-    opacity: 0.6;
+            var(--color-primary) 0%,
+            var(--color-secondary) 25%,
+            var(--color-tertiary) 50%,
+            var(--color-secondary) 75%,
+            var(--color-primary) 100%);
+    opacity: 0.7;
 }
 
 .container {
@@ -70,8 +64,8 @@
     /* 18px ≈ 13.5pt - Tamaño profesional legible */
     line-height: 1.8;
     /* Mayor interlineado para mejor legibilidad */
-    color: #4a5568;
-    /* Color más suave pero legible */
+    color: var(--color-text-light);
+    /* Color de marca con contraste WCAG AA */
     margin-bottom: 4rem;
     max-width: 100%;
     /* Usa todo el ancho disponible */
@@ -183,6 +177,43 @@
 }
 
 /* Animación de entrada suave */
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+
+.ctaContainer {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.ctaButton {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-3d);
+}
+
+.ctaButton:hover {
+    background-color: #574d44;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #7a6d5f;
+}
+
+.ctaButton:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #7a6d5f;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

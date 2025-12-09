@@ -10,6 +10,20 @@ import culturaImgDesktop from '../assets/service-cultura-desktop.webp';
 import culturaImgMobile from '../assets/service-cultura-mobile.webp';
 
 const ServicesSection = () => {
+    const scrollToContact = () => {
+        const contactSection = document.getElementById('contacto');
+        if (contactSection) {
+            const headerOffset = 120;
+            const elementPosition = contactSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     const services = [
         {
             id: 1,
@@ -17,7 +31,7 @@ const ServicesSection = () => {
             imageMobile: energiaImgMobile,
             imageDesktop: energiaImgDesktop,
             description: 'Optimización de los recursos naturales que sostienen la vida. Implementamos soluciones de energía renovable y gestión eficiente del agua para reducir el impacto ambiental de tu organización turística.',
-            colorTheme: 'coral'
+            colorTheme: 'theme1'
         },
         {
             id: 2,
@@ -25,7 +39,7 @@ const ServicesSection = () => {
             imageMobile: produccionImgMobile,
             imageDesktop: produccionImgDesktop,
             description: 'Transformamos sistemas alimentarios hacia la sostenibilidad, agroecología y seguridad alimentaria. Creamos huertos regenerativos y cadenas de suministro locales que nutren tanto a las personas como al planeta.',
-            colorTheme: 'purple'
+            colorTheme: 'theme2'
         },
         {
             id: 3,
@@ -33,7 +47,7 @@ const ServicesSection = () => {
             imageMobile: gestionImgMobile,
             imageDesktop: gestionImgDesktop,
             description: 'Desarrollamos sistemas de medición y gestión que integran criterios ambientales, sociales y económicos. Te ayudamos a cumplir con certificaciones internacionales y a comunicar tu impacto positivo.',
-            colorTheme: 'green'
+            colorTheme: 'theme3'
         },
         {
             id: 4,
@@ -41,7 +55,7 @@ const ServicesSection = () => {
             imageMobile: culturaImgMobile,
             imageDesktop: culturaImgDesktop,
             description: 'Facilitamos procesos de transformación cultural y desarrollo de liderazgo consciente. Diseñamos programas educativos que inspiran a equipos y comunidades a adoptar prácticas regenerativas.',
-            colorTheme: 'blue'
+            colorTheme: 'theme4'
         }
     ];
 
@@ -64,6 +78,16 @@ const ServicesSection = () => {
                             colorTheme={service.colorTheme}
                         />
                     ))}
+                </div>
+
+                {/* CTA Button */}
+                <div className={styles.ctaContainer}>
+                    <button
+                        className={styles.ctaButton}
+                        onClick={scrollToContact}
+                    >
+                        Contáctanos
+                    </button>
                 </div>
             </div>
         </section>

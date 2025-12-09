@@ -11,7 +11,7 @@ const Hero = () => {
     const { elementRef, isLoaded } = useLazyBackground(bannerMobile, bannerDesktop);
 
     return (
-        <section className={styles.hero}>
+        <section className={styles.hero} id="home">
             {/* Main Content */}
             <div className={styles.heroContent}>
                 {/* Card/Box with main content */}

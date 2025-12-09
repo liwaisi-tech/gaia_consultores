@@ -14,8 +14,8 @@
   /* Very light tint of the stone color for cards/sections */
   --color-text: #665a50;
   /* Using Primary for main text */
-  --color-text-light: #8C847B;
-  /* Lighter version for secondary text */
+  --color-text-light: #6B5F56;
+  /* Secondary text - WCAG AA compliant (4.51:1 contrast ratio) */
   --color-white: #FFFFFF;
 
   /* Typography - System Fonts */

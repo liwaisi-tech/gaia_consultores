@@ -1,0 +1,133 @@
+/* ============================================
+   FOOTER STYLES - SIMPLE VERSION
+   ============================================ */
+
+.footer {
+    background-color: var(--color-surface);
+    padding: 2rem 1.5rem;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+.logoContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.logo {
+    height: 90px;
+    width: auto;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.navLink {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.navLink:hover {
+    color: var(--color-secondary);
+}
+
+/* ============================================
+   TABLET (768px+)
+   ============================================ */
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 2.5rem 2rem;
+    }
+
+    .container {
+        max-width: 900px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logoContainer {
+        justify-content: flex-start;
+        width: auto;
+    }
+
+    .logo {
+        height: 80px;
+    }
+
+    .nav {
+        gap: 2.5rem;
+        width: auto;
+    }
+
+    .navLink {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+   DESKTOP (1024px+)
+   ============================================ */
+
+@media (min-width: 1024px) {
+    .footer {
+        padding: 3rem 2rem;
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    .logo {
+        height: 90px;
+    }
+
+    .nav {
+        gap: 3rem;
+    }
+
+    .navLink {
+        font-size: 1.063rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .navLink {
+        transition: none;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.navLink:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}

@@ -1,22 +1,27 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import logoDesktop from '../assets/Logo.-Desktop.webp';
 import logoMobile from '../assets/Logo-mobile.webp';
 
 const Header = () => {
-    const location = useLocation();
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
         const handleScroll = () => {
-            const serviciosSection = document.getElementById('servicios');
-            if (serviciosSection && location.pathname === '/') {
-                const rect = serviciosSection.getBoundingClientRect();
-                const isInView = rect.top <= 100 && rect.bottom >= 100;
-                setActiveSection(isInView ? 'servicios' : '');
-            } else {
-                setActiveSection('');
+            const sections = ['home', 'servicios', 'impacto', 'contacto'];
+            const scrollPosition = window.scrollY + 150; // Offset for header
+
+            for (const sectionId of sections) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        setActiveSection(sectionId);
+                        break;
+                    }
+                }
             }
         };
 
@@ -24,78 +29,74 @@ const Header = () => {
         handleScroll(); // Check initial state
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [location.pathname]);
+    }, []);
 
-    const handleHomeClick = (e) => {
-        // Si ya estamos en la página home, hacer scroll al inicio
-        if (location.pathname === '/') {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const headerOffset = 120; // Height of fixed header
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: sectionId === 'home' ? 0 : offsetPosition,
+                behavior: 'smooth'
+            });
         }
-        // Si estamos en otra página, dejar que React Router navegue normalmente
     };
 
-    const handleServiciosClick = (e) => {
+    const handleNavClick = (e, sectionId) => {
         e.preventDefault();
-        const serviciosSection = document.getElementById('servicios');
-        if (serviciosSection) {
-            serviciosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    };
-
-    const isActive = (path) => {
-        // Si estamos viendo la sección de servicios, Home no debe estar activo
-        if (path === '/' && activeSection === 'servicios') {
-            return false;
-        }
-        return location.pathname === path;
+        scrollToSection(sectionId);
     };
 
     return (
         <header className={styles.header}>
             <div className={styles.headerContainer}>
-                <Link to="/">
+                <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>
                     <picture>
                         <source media="(min-width: 768px)" srcSet={logoDesktop} />
                         <img src={logoMobile} alt="Gaia Consultores" className={styles.logo} />
                     </picture>
-                </Link>
+                </a>
 
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>
                         <li className={styles.navItem}>
-                            <Link
-                                to="/"
-                                onClick={handleHomeClick}
-                                className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
+                            <a
+                                href="#home"
+                                onClick={(e) => handleNavClick(e, 'home')}
+                                className={`${styles.navLink} ${activeSection === 'home' ? styles.active : ''}`}
                             >
                                 Home
-                            </Link>
+                            </a>
                         </li>
                         <li className={styles.navItem}>
                             <a
                                 href="#servicios"
-                                onClick={handleServiciosClick}
-                                className={styles.navLink}
+                                onClick={(e) => handleNavClick(e, 'servicios')}
+                                className={`${styles.navLink} ${activeSection === 'servicios' ? styles.active : ''}`}
                             >
                                 Servicios
                             </a>
                         </li>
                         <li className={styles.navItem}>
-                            <Link
-                                to="/impacto"
-                                className={`${styles.navLink} ${isActive('/impacto') ? styles.active : ''}`}
+                            <a
+                                href="#impacto"
+                                onClick={(e) => handleNavClick(e, 'impacto')}
+                                className={`${styles.navLink} ${activeSection === 'impacto' ? styles.active : ''}`}
                             >
                                 Impacto
-                            </Link>
+                            </a>
                         </li>
                         <li className={styles.navItem}>
-                            <Link
-                                to="/contacto"
-                                className={`${styles.navLink} ${isActive('/contacto') ? styles.active : ''}`}
+                            <a
+                                href="#contacto"
+                                onClick={(e) => handleNavClick(e, 'contacto')}
+                                className={`${styles.navLink} ${activeSection === 'contacto' ? styles.active : ''}`}
                             >
                                 Contacto
-                            </Link>
+                            </a>
                         </li>
                     </ul>
                 </nav>
