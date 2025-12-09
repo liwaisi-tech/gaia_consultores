@@ -121,6 +121,12 @@
         display: block;
     }
 
+    .ctaButton {
+        max-width: 400px;
+        padding: 1.125rem 2.5rem;
+        font-size: 1.063rem;
+    }
+
     /* Efecto escalonado que simula crecimiento orgánico */
     .servicesGrid> :nth-child(1) {
         margin-top: 0;

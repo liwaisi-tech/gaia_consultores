@@ -1,14 +1,10 @@
 /* ============================================
-   IMPACT SECTION STYLES - PLACEHOLDER
+   IMPACT SECTION STYLES
    ============================================ */
 
 .impactSection {
-    padding: 6rem 2rem;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f7f6 100%);
+    padding: 4rem 1.5rem;
+    background: #ffffff;
     position: relative;
     overflow: hidden;
 }
@@ -28,22 +24,264 @@
     opacity: 0.7;
 }
 
-.content {
-    text-align: center;
-    max-width: 600px;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.title {
-    font-size: 2.5rem;
-    color: var(--color-primary);
+/* ============================================
+   HERO STATEMENT SECTION
+   ============================================ */
+
+.heroStatement {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.mainTitle {
+    font-size: 1.75rem;
+    color: var(--color-text);
     margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.mainTitle em {
+    font-style: italic;
     font-weight: 600;
 }
 
 .description {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--color-text);
     line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.description strong {
+    font-weight: 600;
+}
+
+/* Impact Counter Wrapper */
+.impactCounterWrapper {
+    margin: 3rem 0;
+    border-radius: 16px;
+    padding: 3rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(102, 90, 80, 0.2);
+    position: relative;
+    overflow: hidden;
+    background-color: #665a50;
+}
+
+/* Background Image */
+.counterBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.impactCounterWrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(102, 90, 80, 0.35) 0%,
+        rgba(176, 152, 130, 0.25) 50%,
+        rgba(102, 90, 80, 0.35) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.impactCounter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.counterItem {
+    text-align: center;
+}
+
+.counterNumber {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.counterLabel {
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1.5;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.counterLabel sub {
+    font-size: 0.7em;
+}
+
+/* Certification Indicators */
+.certIndicators {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.indicator {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-tertiary);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    background: #ffffff;
+    text-align: center;
+}
+
+/* ============================================
+   CONTACT BUTTON
+   ============================================ */
+
+.contactButton {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 0 #4a4138;
+}
+
+.contactButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #4a4138;
+}
+
+.contactButton:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #4a4138;
+}
+
+/* ============================================
+   COHERENCE SECTION
+   ============================================ */
+
+.coherenceSection {
+    text-align: left;
+}
+
+.coherenceTitle {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.coherenceText {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Circular Icons Grid */
+.iconsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-items: center;
+}
+
+.iconCircle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--color-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    background: #ffffff;
+}
+
+/* Highlighted Badges Row */
+.badgesRow {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 1rem 2rem;
+    background: var(--color-accent);
+    color: var(--color-text);
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Carbon Analysis Text */
+.carbonText {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 2rem 0 1.5rem;
+}
+
+/* Website Carbon Badge */
+.carbonBadge {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #e8f4f8 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid var(--color-tertiary);
+}
+
+.carbonValue {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.carbonLabel {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.carbonStats {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    font-weight: 500;
 }
 
 /* ============================================
@@ -52,20 +290,64 @@
 
 @media (min-width: 768px) {
     .impactSection {
-        padding: 8rem 2rem;
-        min-height: 70vh;
+        padding: 6rem 2rem;
     }
 
-    .content {
-        max-width: 700px;
+    .container {
+        max-width: 900px;
     }
 
-    .title {
-        font-size: 3rem;
+    .mainTitle {
+        font-size: 2.25rem;
     }
 
     .description {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
+    }
+
+    /* Impact Counter - Tablet */
+    .impactCounterWrapper {
+        margin: 4rem 0;
+        padding: 3.5rem 2.5rem;
+        border-radius: 20px;
+    }
+
+    .impactCounter {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+    }
+
+    .counterNumber {
+        font-size: 3rem;
+    }
+
+    .counterLabel {
+        font-size: 0.95rem;
+    }
+
+    .coherenceTitle {
+        font-size: 1.75rem;
+    }
+
+    .coherenceText {
+        font-size: 1rem;
+    }
+
+    .iconsGrid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1.5rem;
+    }
+
+    .iconCircle {
+        width: 70px;
+        height: 70px;
+        font-size: 0.875rem;
+    }
+
+    .contactButton {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -75,14 +357,54 @@
 
 @media (min-width: 1024px) {
     .impactSection {
-        padding: 10rem 2rem;
+        padding: 8rem 2rem;
     }
 
-    .content {
-        max-width: 800px;
+    .container {
+        max-width: 1000px;
     }
 
-    .title {
+    .mainTitle {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1.25rem;
+    }
+
+    /* Impact Counter - Desktop */
+    .impactCounterWrapper {
+        margin: 5rem 0;
+        padding: 4rem 3rem;
+        border-radius: 24px;
+    }
+
+    .impactCounter {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+    }
+
+    .counterNumber {
         font-size: 3.5rem;
+    }
+
+    .counterLabel {
+        font-size: 1rem;
+    }
+
+    .coherenceTitle {
+        font-size: 2rem;
+    }
+
+    .iconCircle {
+        width: 80px;
+        height: 80px;
+        font-size: 1rem;
+    }
+
+    .badge {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.5rem;
+        min-width: 100px;
     }
 }
