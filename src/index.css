@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-
 :root {
   /* Gaia Brand Palette */
   --color-primary: #665a50;
@@ -20,8 +18,10 @@
   /* Lighter version for secondary text */
   --color-white: #FFFFFF;
 
-  /* Typography - Poppins Only */
-  --font-family-base: 'Poppins', system-ui, Helvetica, Arial, sans-serif;
+  /* Typography - System Fonts */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 
   /* Spacing */
   --spacing-xs: 0.5rem;
